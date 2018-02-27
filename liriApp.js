@@ -18,6 +18,7 @@ var fs = require("fs");
 var Spotify = require('node-spotify-api');
 var request = require("request");
 var weather = require("weather-js");
+var twitter = require("twitter");
 //var dotenv = require('dotenv').config();
 var strack = "";
 var defaultTrack = "Mas Tequila";
@@ -127,4 +128,25 @@ else if (fctn == "weather") {
 
 		console.log(JSON.stringify(result, null, 2));
 	});
+}
+
+else if (fctn = "twitter") {
+	
+	var client = new Twitter({
+		consumer_key: process.env.TWITTER_CONSUMER_KEY,
+		consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+		access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
+		access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
+	});
+
+	client.stream('statuses/filter', {track: 'twitter'},  function(stream) {
+		stream.on('data', function(tweet) {
+			console.log(tweet.text);
+		});
+
+		stream.on('error', function(error) {
+			console.log(error);
+		});
+	});
+
 }
