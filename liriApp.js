@@ -13,7 +13,7 @@ console.log(""); // Blank Space (You Probably Already Knew That)
 
 
 // Call the Necessary Stuff to Work
-var omdb = require('omdb');
+//var omdb = require('omdb');
 var fs = require("fs");
 var Spotify = require('node-spotify-api');
 var request = require("request");
