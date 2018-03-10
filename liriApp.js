@@ -130,23 +130,37 @@ else if (fctn == "weather") {
 	});
 }
 
-else if (fctn = "twitter") {
-	
-	var client = new Twitter({
-		consumer_key: process.env.TWITTER_CONSUMER_KEY,
-		consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-		access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
-		access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
-	});
+//else if (fctn = "twitter") {
+//	
+//	var client = new Twitter({
+//		consumer_key: process.env.TWITTER_CONSUMER_KEY,
+//		consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+//		access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
+//		access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
+//	});
+//
+//	client.stream('statuses/filter', {track: 'twitter'},  function(stream) {
+//		stream.on('data', function(tweet) {
+//			console.log(tweet.text);
+//		});
+//
+//		stream.on('error', function(error) {
+//			console.log(error);
+//		});
+//	});
+//
+//}
 
-	client.stream('statuses/filter', {track: 'twitter'},  function(stream) {
-		stream.on('data', function(tweet) {
-			console.log(tweet.text);
-		});
+else if (fctn == null) {
+	console.log("You didn't select anything! Try running again with a function parameter.");
+}
 
-		stream.on('error', function(error) {
-			console.log(error);
-		});
-	});
-
+else {
+	console.log("Invalid function parameter. Try running again");
+	console.log("");
+	console.log("Functions:");
+	console.log("- spotify");
+	console.log("- movie");
+	console.log("- weather");
+	console.log("- twitter (Deprecated)")
 }
